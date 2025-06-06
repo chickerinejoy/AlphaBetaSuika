@@ -1,0 +1,13 @@
+Commands
+- npm install 
+- npm run dev
+- npm install matter-js
+
+TO ADD:
+- Scores for computer and user
+- alpha-beta pruning
+- replace fruits with cats 
+
+BUGS:
+- overlapping object sa first few drops
+- sa pangatlo or pangapat na drop ni user naiiba yung object kapag drinop
