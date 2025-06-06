@@ -1,5 +1,30 @@
-The Suika Game is a single or two-player physics-based puzzle game characterized by a confined, rectangular container into which players strategically drop a sequence of differently sized, spherical fruits. The core mechanic involves merging two identical fruits upon contact, resulting in their evolution into a larger fruit of the next type in a predetermined sequence. This merging action awards points, with larger merged fruits yielding higher scores.
+# Alpha-Beta Suika Game
 
-Expanding on our two-player Suika Game, we've incorporated a User vs. AI mode and a User vs. User 2 mode, enriching the gameplay experience. In the User vs. AI mode, players can test their strategic acumen against the AI opponent powered by the Alpha-Beta search algorithm, as previously described. This mode offers a challenging single-player experience where players can hone their skills against a consistently strategic adversary.
+This project implements the Suika (Watermelon) Game with AI-controlled gameplay using the **Alpha-Beta Pruning** algorithm. The goal is to simulate intelligent gameplay where two players (AI vs User) compete to score the highest by combining fruits strategically.
 
-Furthermore, the User vs. User 2 mode introduces an intriguing layer of assisted gameplay. In this option, the player whose turn it is has the choice to solicit a hint from the integrated AI. When a hint is requested, the Alpha-Beta search algorithm analyzes the current game state and suggests a potentially advantageous fruit placement. This suggestion is presented to the active player, offering guidance without directly dictating the move. The player then retains the autonomy to either follow the AI's hint or make their own decision. This mode serves as a valuable learning tool for players looking to understand the strategic nuances of the game or for those who simply want a little guidance during a competitive match against another human player. It fosters a unique blend of player intuition and AI-driven insights.
+## Features
+
+* AI vs User using Alpha-Beta pruning for decision making
+* Physics-based cat dropping mechanics
+* Score tracking and merging logic
+
+## Installation
+
+To run the project locally, follow these steps:
+
+```bash
+# Install project dependencies
+npm install
+
+# Run the development server
+npm run dev
+
+# Install Matter.js for physics simulation
+npm install matter-js
+```
+## Credits
+
+Inspired by the video from [@paulcode\_ on YouTube](https://www.youtube.com/watch?v=l9y8A3aMYyA).
+
+> 📺 Original Video: ["Suika Game"](https://www.youtube.com/watch?v=l9y8A3aMYyA)
+> 🎮 Concept by: paulcode\_
