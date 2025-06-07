@@ -1,5 +1,9 @@
 import { Events, Bodies, World } from "matter-js";
 import { FRUITS } from "./fruitsData";
+import { getCurrentPlayer } from "./switch";
+
+let userScore = 0;
+let computerScore = 0;
 
 export const setupCollisionHandler = (engine, world) => {
   Events.on(engine, "collisionStart", (event) => {
@@ -28,6 +32,18 @@ export const setupCollisionHandler = (engine, world) => {
         );
 
         World.add(world, merged);
+
+        // console.log("Current Player:", getCurrentPlayer());
+        //  Update scores
+        if (getCurrentPlayer() === "user") { // User
+          userScore += newFruit.points;
+          document.getElementById("ai-score").innerText = userScore;
+          document.getElementById("user-score").innerText = computerScore;
+        } else if (getCurrentPlayer() === "computer") { // Computer
+          computerScore += newFruit.points;
+          document.getElementById("ai-score").innerText = userScore;
+          document.getElementById("user-score").innerText = computerScore;
+        }
       }
 
       // Game Over logic

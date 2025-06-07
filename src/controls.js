@@ -1,16 +1,16 @@
 import { Body, Sleeping } from "matter-js";
 import { addFruit, getCurrentBody } from "./fruit";
+import { getCurrentPlayer, setCurrentPlayer } from "./switch";
 
 let interval = null;
 let disableAction = false;
-let currentPlayer = "user";
 
-export const setupControls = (world) => {
+export const userControls = (world) => {
   // Initial spawn for the user
   addFruit(world);
 
   window.onkeydown = (event) => {
-    if (currentPlayer !== "user" || disableAction) return;
+    if (getCurrentPlayer() !== "user" || disableAction) return;
 
     // Prevent scrolling with arrow keys
     if (
@@ -57,7 +57,9 @@ export const setupControls = (world) => {
 
         setTimeout(() => {
           disableAction = false;
-          currentPlayer = "computer"; // Switch turn
+          // console.log("uCurrent Player:", getCurrentPlayer());
+          setCurrentPlayer("computer"); // Switch to computer
+          // console.log("uCurrent Player:", getCurrentPlayer());
           setTimeout(() => handleComputerTurn(world), 500);
         }, 1000);
         break;
@@ -94,7 +96,9 @@ const handleComputerTurn = (world) => {
         Sleeping.set(currentBody, false);
         // Spawn fruit for user after computer is done
         setTimeout(() => {
-          currentPlayer = "user";
+          // console.log("cCurrent Player:", getCurrentPlayer());
+          setCurrentPlayer("user"); // Switch to user
+          // console.log("cCurrent Player:", getCurrentPlayer());
           addFruit(world);
         }, 1000);
       }, 500);
