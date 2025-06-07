@@ -4,7 +4,6 @@ Commands
 - npm install matter-js
 
 TO ADD:
-- Scores for computer and user
 - alpha-beta pruning
 - replace fruits with cats 
 
