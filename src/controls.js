@@ -1,16 +1,14 @@
 import { Body, Sleeping } from "matter-js";
 import { addFruit, getCurrentBody } from "./fruit";
-import { getCurrentPlayer, setCurrentPlayer } from "./switch";
-
+import { getPlayer, switchPlayer } from "./switch";
+import { isGameOver } from "./collision";
 let interval = null;
 let disableAction = false;
 
 export const userControls = (world) => {
-  // Initial spawn for the user
-  addFruit(world);
-
   window.onkeydown = (event) => {
-    if (getCurrentPlayer() !== "user" || disableAction) return;
+    if (isGameOver()) return; // Stop if game is over
+    if (getPlayer() !== "user" || disableAction) return;
 
     // Prevent scrolling with arrow keys
     if (
@@ -57,9 +55,7 @@ export const userControls = (world) => {
 
         setTimeout(() => {
           disableAction = false;
-          // console.log("uCurrent Player:", getCurrentPlayer());
-          setCurrentPlayer("computer"); // Switch to computer
-          // console.log("uCurrent Player:", getCurrentPlayer());
+          switchPlayer("computer"); // Switch to computer
           setTimeout(() => handleComputerTurn(world), 500);
         }, 1000);
         break;
@@ -77,6 +73,7 @@ export const userControls = (world) => {
 
 // AI turn must replace with alpha-beta
 const handleComputerTurn = (world) => {
+  if (isGameOver()) return;
   addFruit(world);
   const currentBody = getCurrentBody();
   if (!currentBody) return;
@@ -96,9 +93,7 @@ const handleComputerTurn = (world) => {
         Sleeping.set(currentBody, false);
         // Spawn fruit for user after computer is done
         setTimeout(() => {
-          // console.log("cCurrent Player:", getCurrentPlayer());
-          setCurrentPlayer("user"); // Switch to user
-          // console.log("cCurrent Player:", getCurrentPlayer());
+          switchPlayer("user"); // Switch to user
           addFruit(world);
         }, 1000);
       }, 500);

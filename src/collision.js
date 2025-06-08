@@ -1,9 +1,12 @@
 import { Events, Bodies, World } from "matter-js";
 import { FRUITS } from "./fruitsData";
-import { getCurrentPlayer } from "./switch";
+import { getPlayer } from "./switch";
 
 let userScore = 0;
 let computerScore = 0;
+let gameOver = false;
+
+export const isGameOver = () => gameOver;
 
 export const setupCollisionHandler = (engine, world) => {
   Events.on(engine, "collisionStart", (event) => {
@@ -33,16 +36,13 @@ export const setupCollisionHandler = (engine, world) => {
 
         World.add(world, merged);
 
-        // console.log("Current Player:", getCurrentPlayer());
         //  Update scores
-        if (getCurrentPlayer() === "user") { // User
+        if (getPlayer() === "computer") { // User
           userScore += newFruit.points;
-          document.getElementById("ai-score").innerText = userScore;
-          document.getElementById("user-score").innerText = computerScore;
-        } else if (getCurrentPlayer() === "computer") { // Computer
+          document.getElementById("user-score").innerText = userScore;
+        } else if (getPlayer() === "user") { // Computer
           computerScore += newFruit.points;
-          document.getElementById("ai-score").innerText = userScore;
-          document.getElementById("user-score").innerText = computerScore;
+          document.getElementById("ai-score").innerText = computerScore;
         }
       }
 
@@ -53,6 +53,7 @@ export const setupCollisionHandler = (engine, world) => {
       const fruit = isTopLineA ? bodyB : isTopLineB ? bodyA : null;
 
       if (fruit && fruit.speed < 0.1) {
+        gameOver = true;
         alert("Game Over!");
       }
     });
