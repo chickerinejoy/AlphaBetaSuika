@@ -44,7 +44,7 @@ export const FRUITS = [
   },
   {
     label: "supreme",
-    radius: 196 / 2,
+    radius: 200 / 2,
     color: "#FEB6AC",
     points: 96,
   },
