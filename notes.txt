@@ -5,8 +5,6 @@ Commands
 
 TO ADD:
 - alpha-beta pruning
-- replace fruits with cats (chonky, mega-chonk, supreme floof, purring overlord, catstronaut)
 
 BUGS:
-- overlapping object sa first few drops
-- sa pangatlo or pangapat na drop ni user naiiba yung object kapag drinop
+- (empty)

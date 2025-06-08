@@ -1,7 +1,8 @@
 let currentPlayer = "user";
 
-export const getCurrentPlayer = () => currentPlayer;
+export const getPlayer = () => currentPlayer;
 
-export const setCurrentPlayer = (player) => {
+export const switchPlayer = (player) => {
+    console.log("Switching to:", player);
     currentPlayer = player;
 }

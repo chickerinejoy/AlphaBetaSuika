@@ -30,39 +30,33 @@ export const FRUITS = [
     points: 12,
   },
   {
-    label: "apple",
+    label: "chonky",
     radius: 140 / 2,
     color: "#F41615",
     points: 24,
   },
   {
-    label: "pear",
+    label: "megaChonk",
     radius: 160 / 2,
     color: "#FDF176",
     points: 48,
   },
   {
-    label: "peach",
+    label: "supreme",
     radius: 196 / 2,
     color: "#FEB6AC",
     points: 96,
   },
   {
-    label: "pineapple",
+    label: "overlord",
     radius: 220 / 2,
     color: "#F7E608",
     points: 384,
   },
   {
-    label: "melon",
+    label: "catstronaut",
     radius: 270 / 2,
     color: "#89CE13",
     points: 400,
-  },
-  {
-    label: "watermelon",
-    radius: 300 / 2,
-    color: "#26AA1E",
-    points: 500,
-  },
+  }
 ];

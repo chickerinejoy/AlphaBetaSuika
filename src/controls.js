@@ -1,17 +1,15 @@
 import { Body, Sleeping } from "matter-js";
 import { addFruit, getCurrentBody } from "./fruit";
-import { getCurrentPlayer, setCurrentPlayer } from "./switch";
+import { isGameOver } from "./collision";
 import { findBestMove } from './alpha-beta.js';
 
 let interval = null;
 let disableAction = false;
 
 export const userControls = (world) => {
-  // Initial spawn for the user
-  addFruit(world);
-
   window.onkeydown = (event) => {
-    if (getCurrentPlayer() !== "user" || disableAction) return;
+    if (isGameOver()) return; // Stop if game is over
+    if (getPlayer() !== "user" || disableAction) return;
 
     // Prevent scrolling with arrow keys
     if (
@@ -58,9 +56,7 @@ export const userControls = (world) => {
 
         setTimeout(() => {
           disableAction = false;
-          // console.log("uCurrent Player:", getCurrentPlayer());
-          setCurrentPlayer("computer"); // Switch to computer
-          // console.log("uCurrent Player:", getCurrentPlayer());
+          switchPlayer("computer"); // Switch to computer
           setTimeout(() => handleComputerTurn(world), 500);
         }, 1000);
         break;
@@ -78,6 +74,7 @@ export const userControls = (world) => {
 
 // AI turn with alpha-beta pruning
 const handleComputerTurn = (world) => {
+  if (isGameOver()) return;
   addFruit(world);
   const bestMove = findBestMove(world);
   const currentBody = getCurrentBody();
@@ -126,21 +123,3 @@ const handleComputerTurn = (world) => {
         clearInterval(moveInterval);
 
         setTimeout(() => {
-          // Drop fruit
-          Sleeping.set(currentBody, false);
-          // Spawn fruit for user after computer is done
-          setTimeout(() => {
-            setCurrentPlayer("user"); // Switch to user
-            addFruit(world);
-          }, 1000);
-        }, 500);
-      } else {
-        // Keep moving towards target position
-        Body.setPosition(currentBody, {
-          x: currentBody.position.x + Math.sign(dx),
-          y: currentBody.position.y,
-        });
-      }
-    }, 5);
-  }
-};
