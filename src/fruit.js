@@ -1,3 +1,4 @@
+
 import { Bodies, World } from "matter-js";
 import { FRUITS } from "./fruitsData";
 
@@ -28,7 +29,7 @@ export function addFruit(world) {
 
   World.add(world, body);
 }
-
+//
 // Randomize falling fruit
 function getRandomFruit() {
   let fruit;

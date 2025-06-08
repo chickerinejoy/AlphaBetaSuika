@@ -1,3 +1,4 @@
+
 import { Events, Bodies, World } from "matter-js";
 import { FRUITS } from "./fruitsData";
 import { getPlayer } from "./switch";
@@ -5,7 +6,7 @@ import { getPlayer } from "./switch";
 let userScore = 0;
 let computerScore = 0;
 let gameOver = false;
-
+//
 export const isGameOver = () => gameOver;
 
 export const setupCollisionHandler = (engine, world) => {

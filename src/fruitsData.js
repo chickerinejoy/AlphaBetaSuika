@@ -1,3 +1,4 @@
+
 export const FRUITS = [
   {
     label: "kitten",
@@ -60,3 +61,4 @@ export const FRUITS = [
     points: 400,
   }
 ];
+//
