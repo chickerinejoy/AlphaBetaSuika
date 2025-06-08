@@ -100,7 +100,7 @@ const handleComputerTurn = (world) => {
           // Spawn fruit for user after computer is done
           setTimeout(() => {
             // console.log("cCurrent Player:", getCurrentPlayer());
-            setCurrentPlayer("user"); // Switch to user
+            switchPlayer("user"); // Switch to user
             // console.log("cCurrent Player:", getCurrentPlayer());
             addFruit(world);
           }, 1000);
@@ -128,7 +128,7 @@ const handleComputerTurn = (world) => {
           Sleeping.set(currentBody, false);
           // Spawn fruit for user after computer is done
           setTimeout(() => {
-            setCurrentPlayer("user"); // Switch to user
+            switchPlayer("user"); // Switch to user
             addFruit(world);
           }, 1000);
         }, 500);
