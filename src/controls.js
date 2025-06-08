@@ -2,6 +2,7 @@ import { Body, Sleeping } from "matter-js";
 import { addFruit, getCurrentBody } from "./fruit";
 import { isGameOver } from "./collision";
 import { findBestMove } from './alpha-beta.js';
+import { getPlayer, switchPlayer } from "./switch"; // ADDED THIS IMPORT
 
 let interval = null;
 let disableAction = false;
@@ -123,3 +124,21 @@ const handleComputerTurn = (world) => {
         clearInterval(moveInterval);
 
         setTimeout(() => {
+          // Drop fruit
+          Sleeping.set(currentBody, false);
+          // Spawn fruit for user after computer is done
+          setTimeout(() => {
+            setCurrentPlayer("user"); // Switch to user
+            addFruit(world);
+          }, 1000);
+        }, 500);
+      } else {
+        // Keep moving towards target position
+        Body.setPosition(currentBody, {
+          x: currentBody.position.x + Math.sign(dx),
+          y: currentBody.position.y,
+        });
+      }
+    }, 5);
+  }
+};
