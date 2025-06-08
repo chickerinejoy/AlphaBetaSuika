@@ -1,5 +1,5 @@
 import { Bodies, World } from "matter-js";
-
+//
 // Setup the wall bounds for the game
 export const setupWallBounds = (world) => {
   const ground = Bodies.rectangle(310, 820, 620, 60, {

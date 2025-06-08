@@ -5,7 +5,7 @@ import { setupCollisionHandler } from "./collision";
 import { addFruit } from "./fruit";
 
 const world = engine.world;
-
+//
 setupWallBounds(world);
 userControls(world);
 setupCollisionHandler(engine, world);

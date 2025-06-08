@@ -28,7 +28,7 @@ export function addFruit(world) {
 
   World.add(world, body);
 }
-
+//
 // Randomize falling fruit
 function getRandomFruit() {
   let fruit;
