@@ -1,6 +1,7 @@
 import { Body, Sleeping } from "matter-js";
 import { addFruit, getCurrentBody } from "./fruit";
 import { getCurrentPlayer, setCurrentPlayer } from "./switch";
+import { findBestMove } from './alpha-beta.js';
 
 let interval = null;
 let disableAction = false;
@@ -75,39 +76,71 @@ export const userControls = (world) => {
   };
 };
 
-// AI turn must replace with alpha-beta
+// AI turn with alpha-beta pruning
 const handleComputerTurn = (world) => {
   addFruit(world);
+  const bestMove = findBestMove(world);
   const currentBody = getCurrentBody();
+
   if (!currentBody) return;
 
-  // Position computer fruit randomly
-  const targetX = 100 + Math.random() * 400;
+  // Check if bestMove is null or undefined
+  if (bestMove === null || bestMove === undefined) {
+    console.warn("No best move found, dropping randomly.");
+    // Position computer fruit randomly
+    const targetX = 100 + Math.random() * 400;
+    const moveInterval = setInterval(() => {
+      // Calculates distance of fruit and target position
+      const dx = targetX - currentBody.position.x;
 
-  const moveInterval = setInterval(() => {
-    // Calculates distance of fruit and target position
-    const dx = targetX - currentBody.position.x;
+      if (Math.abs(dx) < 1) {
+        clearInterval(moveInterval);
 
-    if (Math.abs(dx) < 1) {
-      clearInterval(moveInterval);
-
-      setTimeout(() => {
-        // Drop fruit
-        Sleeping.set(currentBody, false);
-        // Spawn fruit for user after computer is done
         setTimeout(() => {
-          // console.log("cCurrent Player:", getCurrentPlayer());
-          setCurrentPlayer("user"); // Switch to user
-          // console.log("cCurrent Player:", getCurrentPlayer());
-          addFruit(world);
-        }, 1000);
-      }, 500);
-    } else {
-      // Keep moving towards target position
-      Body.setPosition(currentBody, {
-        x: currentBody.position.x + Math.sign(dx),
-        y: currentBody.position.y,
-      });
-    }
-  }, 5);
+          // Drop fruit
+          Sleeping.set(currentBody, false);
+          // Spawn fruit for user after computer is done
+          setTimeout(() => {
+            // console.log("cCurrent Player:", getCurrentPlayer());
+            setCurrentPlayer("user"); // Switch to user
+            // console.log("cCurrent Player:", getCurrentPlayer());
+            addFruit(world);
+          }, 1000);
+        }, 500);
+      } else {
+        // Keep moving towards target position
+        Body.setPosition(currentBody, {
+          x: currentBody.position.x + Math.sign(dx),
+          y: currentBody.position.y,
+        });
+      }
+    }, 5);
+  } else {
+    // Move the current body to the x position of the best move
+    const targetX = bestMove.x; // Assuming bestMove has an x property
+
+    const moveInterval = setInterval(() => {
+      const dx = targetX - currentBody.position.x;
+
+      if (Math.abs(dx) < 1) {
+        clearInterval(moveInterval);
+
+        setTimeout(() => {
+          // Drop fruit
+          Sleeping.set(currentBody, false);
+          // Spawn fruit for user after computer is done
+          setTimeout(() => {
+            setCurrentPlayer("user"); // Switch to user
+            addFruit(world);
+          }, 1000);
+        }, 500);
+      } else {
+        // Keep moving towards target position
+        Body.setPosition(currentBody, {
+          x: currentBody.position.x + Math.sign(dx),
+          y: currentBody.position.y,
+        });
+      }
+    }, 5);
+  }
 };
