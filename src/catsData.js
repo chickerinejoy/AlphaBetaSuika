@@ -1,4 +1,4 @@
-export const FRUITS = [
+export const CATS = [
   {
     label: "kitten",
     radius: 40 / 2,

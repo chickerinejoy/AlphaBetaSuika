@@ -2,12 +2,12 @@ import { engine, render, startEngine } from "./engine";
 import { setupWallBounds } from "./wall";
 import { userControls } from "./controls";
 import { setupCollisionHandler } from "./collision";
-import { addFruit } from "./fruit";
+import { addCat } from "./cat";
 
 const world = engine.world;
 
 setupWallBounds(world);
 userControls(world);
 setupCollisionHandler(engine, world);
-addFruit(world);
+addCat(world);
 startEngine();

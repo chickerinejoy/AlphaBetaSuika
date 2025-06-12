@@ -1,5 +1,5 @@
 import { Body, Sleeping } from "matter-js";
-import { addFruit, getCurrentBody } from "./fruit";
+import { addCat, getCurrentBody } from "./cat.js";
 import { isGameOver } from "./collision";
 import { findBestMove } from './alpha-beta.js';
 import { getPlayer, switchPlayer } from "./switch"; // ADDED THIS IMPORT
@@ -76,7 +76,7 @@ export const userControls = (world) => {
 // AI turn with alpha-beta pruning
 const handleComputerTurn = (world) => {
   if (isGameOver()) return;
-  addFruit(world);
+  addCat(world);
   const bestMove = findBestMove(world);
   const currentBody = getCurrentBody();
 
@@ -102,7 +102,7 @@ const handleComputerTurn = (world) => {
             // console.log("cCurrent Player:", getCurrentPlayer());
             switchPlayer("user"); // Switch to user
             // console.log("cCurrent Player:", getCurrentPlayer());
-            addFruit(world);
+            addCat(world);
           }, 1000);
         }, 500);
       } else {
@@ -129,7 +129,7 @@ const handleComputerTurn = (world) => {
           // Spawn fruit for user after computer is done
           setTimeout(() => {
             switchPlayer("user"); // Switch to user
-            addFruit(world);
+            addCat(world);
           }, 1000);
         }, 500);
       } else {

@@ -1,5 +1,5 @@
 import { Events, Bodies, World } from "matter-js";
-import { FRUITS } from "./fruitsData";
+import { CATS } from "./catsData";
 import { getPlayer } from "./switch";
 
 let userScore = 0;
@@ -17,20 +17,20 @@ export const setupCollisionHandler = (engine, world) => {
       if (bodyA.label === bodyB.label) {
         World.remove(world, [bodyA, bodyB]);
 
-        const index = FRUITS.findIndex((f) => f.label === bodyA.label);
-        if (index === FRUITS.length - 1) return;
+        const index = CATS.findIndex((f) => f.label === bodyA.label);
+        if (index === CATS.length - 1) return;
 
-        const newFruit = FRUITS[index + 1];
+        const newCat = CATS[index + 1];
         const merged = Bodies.circle(
           collision.collision.supports[0].x,
           collision.collision.supports[0].y,
-          newFruit.radius,
+          newCat.radius,
           {
             render: {
-              fillStyle: newFruit.color,
-              sprite: { texture: `/${newFruit.label}.png` },
+              fillStyle: newCat.color,
+              sprite: { texture: `/${newCat.label}.png` },
             },
-            label: newFruit.label,
+            label: newCat.label,
           }
         );
 
@@ -38,10 +38,10 @@ export const setupCollisionHandler = (engine, world) => {
 
         //  Update scores
         if (getPlayer() === "computer") { // User
-          userScore += newFruit.points;
+          userScore += newCat.points;
           document.getElementById("user-score").innerText = userScore;
         } else if (getPlayer() === "user") { // Computer
-          computerScore += newFruit.points;
+          computerScore += newCat.points;
           document.getElementById("ai-score").innerText = computerScore;
         }
       }
@@ -50,9 +50,9 @@ export const setupCollisionHandler = (engine, world) => {
       const isTopLineA = bodyA.label === "topLine";
       const isTopLineB = bodyB.label === "topLine";
 
-      const fruit = isTopLineA ? bodyB : isTopLineB ? bodyA : null;
+      const cat = isTopLineA ? bodyB : isTopLineB ? bodyA : null;
 
-      if (fruit && fruit.speed < 0.1) {
+      if (cat && cat.speed < 0.1) {
         gameOver = true;
         alert("Game Over!");
       }
