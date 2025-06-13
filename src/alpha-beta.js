@@ -23,8 +23,8 @@ function getPossibleMoves(world) {
   if (!world.cats || world.cats.length === 0) return [];
 
   const moves = [];
-  const leftBound = 30;   // Adjust as needed for your game
-  const rightBound = 590; // Adjust as needed for your game
+  const leftBound = 30;   // Adjust as needed 
+  const rightBound = 590; // Adjust as needed 
   const step = 20;        // Granularity of possible moves (20 is smoother for Suika)
 
   for (let x = leftBound; x <= rightBound; x += step) {
@@ -39,8 +39,7 @@ function applyMove(world, move) {
 
   // Simulate dropping the next cat at move.x
   if (newWorld.cats && newWorld.cats.length > 0) {
-    // Find the falling cat (the one with the highest y)
-    // Assume the last cat in the array is the one to drop
+    // Find the falling cat (the one with the highest y) and assume the last cat in the array is the one to drop
     const nextCat = newWorld.cats[newWorld.cats.length - 1];
     nextCat.x = move.x;
     // Simulate it falling to the bottom (set y to the bottom of the board)

@@ -13,7 +13,7 @@ export const setupCollisionHandler = (engine, world) => {
     event.pairs.forEach((collision) => {
       const { bodyA, bodyB } = collision;
 
-      // Merge same fruits
+      // Merge same cats
       if (bodyA.label === bodyB.label) {
         World.remove(world, [bodyA, bodyB]);
 

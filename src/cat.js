@@ -4,15 +4,15 @@ import { CATS } from "./catsData";
 let currentBody = null;
 let currentCat = null;
 
-// Exported functions to access current fruit and body
+// Exported functions to access current cat and body
 export const getCurrentCat = () => currentCat;
 export const getCurrentBody = () => currentBody;
 
-// Function to add a new fruit to the world
+// Function to add a new cat to the world
 export function addCat(world) {
   const cat = getRandomCat();
 
-  // Create new body for fruit
+  // Create new body for cat
   const body = Bodies.circle(300, 50, cat.radius, {
     label: cat.label,
     isSleeping: true,
@@ -29,7 +29,7 @@ export function addCat(world) {
   World.add(world, body);
 }
 
-// Randomize falling fruit
+// Randomize falling cat
 function getRandomCat() {
   let cat;
   do {
