@@ -2,18 +2,52 @@ import { isGameOver } from "./collision";
 
 function evaluateWorld(world) {
   // Implement a real evaluation function
-  void world;
-  return 0;
+  // Sum all cat points, penalize if near overflow
+  let score = 0;
+  for (const cat of world.cats) {
+    score += cat.points;
+  }
+
+  // Penalize if the stack is high (y > threshold)
+  for (const cat of world.cats) {
+    if (cat.y < 100) { // adjust threshold as needed
+      score -= 100; // penalty for being near the top
+    }
+  }
+
+  return score;
 }
 
 function getPossibleMoves(world) {
-  // Return an array of all valid moves in the current world state
-  return [];
+  // Only generate moves if a cat is ready to be dropped
+  if (!world.cats || world.cats.length === 0) return [];
+
+  const moves = [];
+  const leftBound = 30;   // Adjust as needed for your game
+  const rightBound = 590; // Adjust as needed for your game
+  const step = 20;        // Granularity of possible moves (20 is smoother for Suika)
+
+  for (let x = leftBound; x <= rightBound; x += step) {
+    moves.push({ x });
+  }
+  return moves;
 }
 
 function applyMove(world, move) {
-  // Return a new world state after applying the move
-  return world;
+  // Deep clone the world to avoid mutating the original
+  const newWorld = JSON.parse(JSON.stringify(world));
+
+  // Simulate dropping the next cat at move.x
+  if (newWorld.cats && newWorld.cats.length > 0) {
+    // Find the falling cat (the one with the highest y)
+    // Assume the last cat in the array is the one to drop
+    const nextCat = newWorld.cats[newWorld.cats.length - 1];
+    nextCat.x = move.x;
+    // Simulate it falling to the bottom (set y to the bottom of the board)
+    nextCat.y = 600; // Adjust this value to your board's bottom y coordinate
+  }
+
+  return newWorld;
 }
 
 function alphaBeta(world, depth, alpha, beta, maximizingPlayer) {
