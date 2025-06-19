@@ -9,7 +9,7 @@ html {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* background-color: #FAF8CC; */
+  background-color: #000000;
   background-image: url("/public/background.gif");
   background-size: cover;
   background-position: center;
@@ -22,7 +22,7 @@ h2 {
   font-family: "Bungee Spice", serif;
   font-weight: 700;
   text-align: center;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8); /* horizontal, vertical, blur, color */
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8); 
 }
 
 p,
@@ -42,7 +42,7 @@ button {
   justify-content: center; 
   align-items: center;     
   flex-direction: column;
-  margin-top: 100px;
+  margin-top: 200px;
 }
 
 
@@ -63,6 +63,12 @@ canvas {
   border: 5px solid #e29b36;
 }
 
-
+.text-box {
+  background: rgba(0, 0, 0, 0.5); /* semi-transparent dark box */
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 24px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+}
 
 

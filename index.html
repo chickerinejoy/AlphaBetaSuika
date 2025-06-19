@@ -1,32 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT"
-      crossorigin="anonymous" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Jersey+25&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/src/style.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
-  </head>
-  <body>
-    <div id="app ">
-      <div class="container-fluid p-4 border rounded">
-        <div class="heading p-4 mb-4">
-          <h1 class="text-center">Alpha-Beta Suika Game</h1>
-        </div>
 
-        <div class="row">
-          <div class="col-md-3">
-            <div class="scores mb-4">
-              <h2 class="text-center">Scores</h2>
-              <div class="line mb-3"></div>
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Jersey+25&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vite App</title>
+</head>
+
+<body>
+  <div id="app ">
+    <div class="container-fluid border rounded">
+      <div class="heading mb-4">
+        <h1 class="text-center">Alpha-Beta Suika Game</h1>
+      </div>
+
+      <div class="row">
+        <div class="col-md-3">
+          <div class="scores mb-4">
+            <h2 class="text-center">Scores</h2>
+            <div class="line mb-3"></div>
+            <div class="text-box">
               <div>
                 <p>User: <span id="user-score">0</span></p>
               </div>
@@ -34,9 +34,11 @@
                 <p>AI: <span id="ai-score">0</span></p>
               </div>
             </div>
-            <div class="points">
-              <h2>Cat Points List</h2>
-              <div class="line mb-3"></div>
+          </div>
+          <div class="points">
+            <h2>Cat Points List</h2>
+            <div class="line mb-3"></div>
+            <div class="text-box">
               <ul>
                 <li>Kitten: 1 point</li>
                 <li>Junior: 2 points</li>
@@ -51,13 +53,15 @@
               </ul>
             </div>
           </div>
-          <div class="col-md-6 m-auto">
-            <div id="game-container" class="m-auto"></div>
-          </div>
-          <div class="col-md-3">
-            <div class="instruction">
-              <h2>Instructions</h2>
-              <div class="line mb-3"></div>
+        </div>
+        <div class="col-md-6 m-auto">
+          <div id="game-container" class="m-auto"></div>
+        </div>
+        <div class="col-md-3">
+          <div class="instruction">
+            <h2>Instructions</h2>
+            <div class="line mb-3"></div>
+            <div class="text-box">
               <p>
                 The rules of this game are quite similar to those of block
                 puzzle game:
@@ -70,20 +74,21 @@
                 <li>Only cats of the same size and type can be merged.</li>
               </ul>
             </div>
-            <div class="cycle m-auto">
-              <h2>Cat Evolution</h2>
-              <div class="line mb-3"></div>
-              <p><img src="/public/evolution.gif" alt="Cat" height="330" width="350"></p>
-            </div>
+          </div>
+          <div class="cycle m-auto">
+            <h2>Cat Evolution</h2>
+            <div class="line mb-3"></div>
+            <p><img src="/public/evolution.gif" alt="Cat" height="330" width="350"></p>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
-      crossorigin="anonymous"></script>
-    <script type="module" src="/src/main.js"></script>
-  </body>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
+    crossorigin="anonymous"></script>
+  <script type="module" src="/src/main.js"></script>
+</body>
+
 </html>
