@@ -13,7 +13,7 @@ export function addCat(world) {
   const cat = getRandomCat();
 
   // Drop sound sfx
-  const dropSound = new Audio('/public/drop.m4a'); 
+  const dropSound = new Audio('/drop.m4a'); 
 
   dropSound.currentTime = 0;
   dropSound.play().catch(() => {}); 
