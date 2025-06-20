@@ -25,7 +25,7 @@ To run the project locally, follow these steps:
   npm install matter-js
 
 ## Documentation
-[Alpha-Beta Suika Game Proposal](URL "https://docs.google.com/document/d/1ST9AGr_z_gw4QZL_lqYdc-e-aF83KN532eeTLt9gvcc/edit?usp=sharing")
+- [Alpha-Beta Suika Game Proposal](URL "https://docs.google.com/document/d/1ST9AGr_z_gw4QZL_lqYdc-e-aF83KN532eeTLt9gvcc/edit?usp=sharing")
 
 ## Credits
 
