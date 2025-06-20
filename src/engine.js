@@ -9,7 +9,7 @@ export const render = Render.create({
   element: document.getElementById("game-container"),
   options: {
     wireframes: false,
-    background: "#F7F4C8",
+    background: "#0A0C1A",
     width: 620,
     height: 850,
   },

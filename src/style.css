@@ -15,6 +15,7 @@ html {
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  cursor: url('/public/cursor.png'), auto;
 }
 
 h1,
