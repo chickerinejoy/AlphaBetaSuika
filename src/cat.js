@@ -4,6 +4,8 @@ import { CATS } from "./catsData";
 let currentBody = null;
 let currentCat = null;
 
+const dropSound = new Audio('/drop.m4a'); 
+
 // Exported functions to access current cat and body
 export const getCurrentCat = () => currentCat;
 export const getCurrentBody = () => currentBody;
@@ -13,10 +15,8 @@ export function addCat(world) {
   const cat = getRandomCat();
 
   // Drop sound sfx
-  const dropSound = new Audio('/drop.m4a'); 
-
   dropSound.currentTime = 0;
-  dropSound.play().catch(() => {}); 
+  dropSound.play(); 
 
   // Create new body for cat
   const body = Bodies.circle(300, 50, cat.radius, {
