@@ -2,6 +2,9 @@
 
 This project implements the Suika (Watermelon) Game with AI-controlled gameplay using the **Alpha-Beta Pruning** algorithm. The goal is to simulate intelligent gameplay where two players (AI vs User) compete to score the highest by combining cats strategically.
 
+## Game proposal
+[Alpha-Beta Suika Game Proposal](URL "https://docs.google.com/document/d/1ST9AGr_z_gw4QZL_lqYdc-e-aF83KN532eeTLt9gvcc/edit?usp=sharing")
+
 ## Features
 
 * AI vs User using Alpha-Beta pruning for decision making
