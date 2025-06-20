@@ -12,6 +12,12 @@ export const getCurrentBody = () => currentBody;
 export function addCat(world) {
   const cat = getRandomCat();
 
+  // Cat dropping sound
+  const dropSound = new Audio('/public/drop.m4a'); 
+
+  dropSound.currentTime = 0;
+  dropSound.play().catch(() => {}); 
+
   // Create new body for cat
   const body = Bodies.circle(300, 50, cat.radius, {
     label: cat.label,
