@@ -6,6 +6,8 @@ let userScore = 0;
 let computerScore = 0;
 let gameOver = false;
 
+const mergeSound = new Audio('/public/merge.m4a');
+
 export const isGameOver = () => gameOver;
 
 export const setupCollisionHandler = (engine, world) => {
@@ -16,7 +18,6 @@ export const setupCollisionHandler = (engine, world) => {
       // Merge same cats
       if (bodyA.label === bodyB.label) {
         // Merge sound sfx
-        const mergeSound = new Audio('public/merge.m4a');
         mergeSound.currentTime = 0;
         mergeSound.play();
 
