@@ -15,7 +15,7 @@ export const setupCollisionHandler = (engine, world) => {
 
       // Merge same cats
       if (bodyA.label === bodyB.label) {
-        // Play merge sound only when cats merge
+        // Merge sound sfx
         const mergeSound = new Audio('/public/merge.m4a');
         mergeSound.currentTime = 0;
         mergeSound.play();

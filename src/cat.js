@@ -12,7 +12,7 @@ export const getCurrentBody = () => currentBody;
 export function addCat(world) {
   const cat = getRandomCat();
 
-  // Cat dropping sound
+  // Drop sound sfx
   const dropSound = new Audio('/public/drop.m4a'); 
 
   dropSound.currentTime = 0;
