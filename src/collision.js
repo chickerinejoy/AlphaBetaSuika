@@ -6,7 +6,7 @@ let userScore = 0;
 let computerScore = 0;
 let gameOver = false;
 
-const mergeSound = new Audio('/public/merge.m4a');
+const mergeSound = new Audio('/merge.m4a');
 
 export const isGameOver = () => gameOver;
 
