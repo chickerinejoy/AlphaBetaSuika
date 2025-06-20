@@ -2,6 +2,8 @@
 
 This project implements the Suika (Watermelon) Game with AI-controlled gameplay using the **Alpha-Beta Pruning** algorithm. The goal is to simulate intelligent gameplay where two players (AI vs User) compete to score the highest by combining cats strategically.
 
+🎮 Play Now: https://alpha-beta-suika.vercel.app/
+
 ## Game Preview
 https://github.com/user-attachments/assets/e7ad2e0e-cac5-42c4-87db-8b212b1b863d
 
