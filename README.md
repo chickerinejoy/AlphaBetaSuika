@@ -7,6 +7,11 @@ This project implements the Suika (Watermelon) Game with AI-controlled gameplay 
 ## 📸 Game Preview
 https://github.com/user-attachments/assets/e7ad2e0e-cac5-42c4-87db-8b212b1b863d
 
+
+Uploading preview.mp4…
+
+
+
 ## 👮‍♀️ Game Rules
 - If the container overflows, the game indicates "Game Over". 
 - Players can move the cat left or right before it drops. 
