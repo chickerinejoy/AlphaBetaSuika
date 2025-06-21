@@ -142,3 +142,4 @@ const handleComputerTurn = (world) => {
     }, 5);
   }
 };
+
