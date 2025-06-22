@@ -1,17 +1,17 @@
 import { isGameOver } from "./collision"; 
 
 function evaluateWorld(world) {
-  // Implement a real evaluation function
-  // Sum all cat points, penalize if near overflow
   let score = 0;
-  for (const cat of world.cats) {
-    score += cat.points;
-  }
+  if (Array.isArray(world.cats)) {
+    for (const cat of world.cats) {
+      score += typeof cat.points === "number" ? cat.points : 0;
+    }
 
-  // Penalize if the stack is high (y > threshold)
-  for (const cat of world.cats) {
-    if (cat.y < 100) { // adjust threshold as needed
-      score -= 100; // penalty for being near the top
+    // Penalize if the stack is high (y > threshold)
+    for (const cat of world.cats) {
+      if (typeof cat.y === "number" && cat.y < 100) { 
+        score -= 100; // penalty for being near the top
+      }
     }
   }
 
