@@ -84,9 +84,27 @@ const handleComputerTurn = (world) => {
 
   // Check if bestMove is null or undefined
   if (bestMove === null || bestMove === undefined) {
-    console.warn("No best move found, dropping randomly.");
-    // Position computer fruit randomly
-    const targetX = 100 + Math.random() * 400;
+    // Try to find a cat of the same type as currentBody
+    const allBodies = world.bodies || [];
+    const currentType = currentBody.catType || currentBody.label; 
+    let foundSameCat = null;
+
+    for (const body of allBodies) {
+      if (body === currentBody) continue;
+      if ((body.catType || body.label) === currentType) {
+        foundSameCat = body;
+        break;
+      }
+    }
+
+    let targetX;
+    if (foundSameCat) {
+      targetX = foundSameCat.position.x;
+    } else {
+      // No same cat found, drop randomly
+      targetX = 100 + Math.random() * 400;
+    }
+
     const moveInterval = setInterval(() => {
       // Calculates distance of fruit and target position
       const dx = targetX - currentBody.position.x;
